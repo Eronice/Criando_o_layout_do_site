@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body{
+    background-color: #0c0f16;
+}
+
+/*Configura a largura da página*/
+.max-width{
+    max-width: 2000px;
+    padding: 0 10px;
+    margin: auto;
+}
+
+/*Formatação do menu no geral*/
+.navbar{
+    position: fixed;
+    width: 100%;        /*Pra ocupar os 100% da largura dos 1300px*/
+    z-index: 999;       /*Posição em z*/
+    padding: 20px 0;
+    background-color: #121721;
+    border-bottom: solid #1b202a 2px;  /*borda na parte de baixo do menu*/
+}
+
+/*Formatação de todo o max-width*/
+.navbar .max-width{
+    display: flex;
+    align-items: center;    /*Centraliza em relação a parte superior e inferior*/
+    justify-content: space-between;
+}
+
+/*Formatação do Celke*/
+.navbar .logo a{
+    color: #547ec7;
+    font-size: 35px;        /*Tamanho da fonte*/
+    font-weight: 500px;     /*Espesura da fonte*/
+}
+
+/*Formatação das listas*/
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+
+/*Formatação do link a do menu*/
+.navbar .menu li a{
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400px;
+    margin-left: 25px;
+}
+
+/*Para formatação desse ícone (barrinha) foi utilizado o link da biblioteca cdnjs no site do mesmo, depois de ter colocado esse link na página html, consultei a página fontawesome para pegar o icone na versão free*/
+.menu-btn{  /*icone barrinha*/
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+/*Responsividade da página*/
+@media (max-width: 947px){
+    /*Deixa a página configurada para dipositivos móveis*/
+    .menu-btn{
+        display: block;
+        z-index: 999;
+    }
+    /*Deixa a página configurada para computador*/
+    .navbar .menu{
+        background-color: #211721;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        text-align: center; /*Centralizar o texto em relação a direita e esquerda*/
+        padding-top: 80px;
+    }
+    .navbar .menu.active{
+        left: 0;
+    }
+    .navbar .menu li{
+        display: block;
+    }
+    .navbar .menu li a{
+        display: inline-block;
+        margin: 13px 0;
+        font-size: 25px;
+    }
+}
