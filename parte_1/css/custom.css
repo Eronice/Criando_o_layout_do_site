@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -5,8 +7,14 @@
     text-decoration: none;
 }
 
+html, body{
+    height: 100%;
+}
+
 body{
     background-color: #0c0f16;
+    display: flex;
+    flex-direction: column;
 }
 
 /*Configura a largura da página*/
@@ -22,7 +30,9 @@ body{
     width: 100%;        /*Pra ocupar os 100% da largura dos 1300px*/
     z-index: 999;       /*Posição em z*/
     padding: 20px 0;
-    background-color: #121721;
+    font-family: 'Ubuntu', sans-serif;
+    /*background-color: #121721;*/
+    background-color: none;
     border-bottom: solid #1b202a 2px;  /*borda na parte de baixo do menu*/
 }
 
@@ -69,6 +79,9 @@ body{
         display: block;
         z-index: 999;
     }
+    .menu-btn i.active:before{
+        content: "\f00d";
+    }
     /*Deixa a página configurada para computador*/
     .navbar .menu{
         background-color: #211721;
@@ -79,8 +92,12 @@ body{
         top: 0;
         text-align: center; /*Centralizar o texto em relação a direita e esquerda*/
         padding-top: 80px;
+        transition: all 0.3s ease;
     }
-    .navbar .menu.active{
+    .max-width{
+        max-width: 930px;
+    }
+    .navbar .menu.active{       /*Parte do javascript*/
         left: 0;
     }
     .navbar .menu li{
@@ -91,4 +108,164 @@ body{
         margin: 13px 0;
         font-size: 25px;
     }
+}
+
+/*Formatação da section*/
+section{
+    padding: 50px 0;
+}
+@media (max-width: 690px){
+    section{
+        padding: 20px 0;
+    }
+}
+/*Formatação do fundo da página*/
+.top{
+    color: #fff;
+    display: flex;
+    background:  url('../img/images8.jpg') no-repeat center;
+    height: 100vh;
+    min-height: 500px;
+    background-attachment: fixed;       /*Deixa a imagem fixa na página*/
+    background-size: cover;             /*manter a imagem sempre centralizada*/
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.top .max-width{    /*O texto vai todo para a esquerda*/
+    width: 100%;
+    display: flex;
+}
+
+.top .top-content .text-1{
+    font-size: 25px;
+    margin-top: 100px;
+}
+.top .top-content .text-2{
+    font-size: 55px;
+    font-weight: 400px;
+    margin-left: -3px;
+}
+.top .top-content .text-3{
+    font-size: 32px;
+    margin: 5px 0;
+}
+.top .top-content a{
+    display: inline-block;
+    background: #b02ab7;
+    color: #fff;
+    font-size: 25px;
+    padding: 12px 36px;
+    margin-top: 20px;
+    font-weight: 300;
+    border-radius: 6px;
+    border: 2px solid #b02ab7;
+    transition: all 0.3s ease;
+}
+.top .top-content a:hover{
+    color: #b02ab7;
+    background: none;       /*tira a cor de fundo do botão*/
+}
+
+/*Formatação do conteúdo*/
+.services{
+    color: #fff;
+    background-color: #0c0f16;
+    font-family: 'Poppins', sans-serif;
+}
+.services .title{
+    text-align: center;
+    margin: 40px 0;
+    font-weight: 400;
+    font-size: 35px;
+}
+.services .serv-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+/*Formatação de cada seção*/
+.services .serv-content .card{
+    width: calc(33%);
+    background-color: #1b202a;
+    text-align: center;
+    border-radius: 6px;
+    padding: 50px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.services .serv-content .card:hover{ /*coloca cor rosa no fundo do texto*/
+    background-color: #b02ab7;
+}
+.services .serv-content .card i{    /*Formatação do icone*/
+    font-size: 50px;
+    color: #b02ab7;
+    transition: all 0.3s ease;
+}
+.services .serv-content .card:hover i{  /*o ícone fica branco quando passa o mouse*/
+    color: #fff;
+}
+.services .serv-content .card:hover .box{   /*aproxima o texto quando passa o mouse*/
+    transform: scale(1.05);
+}
+.services .serv-content .card .box{ /*torna a transação acima mais lenta*/
+    transition: all 0.3s ease;
+}
+.services .serv-content .card .text{    /*formatação do título 'serviço'*/
+    font-size: 25px;
+    font-weight: 500px;
+    margin: 10px 0 7px 0;
+}
+/*Adaptar as colunas para dispositivo móvel*/
+@media (max-width: 947px){  /*Para tela com tamanho max 947px*/
+    .services .serv-content .card{
+        width: calc(50% - 10px);
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 690px){
+    .services .serv-content .card{
+        width: 100%;
+    }
+}
+
+/*Formatação das informações de contato*/
+.contact{
+    color: #fff;
+    background-color: #151921;
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 100px;
+}
+.contact .title{
+    text-align: center;
+    margin-bottom: 50px;
+    padding-top: 50px;
+    font-weight: 400px;
+    font-size: 35px;
+}
+.contact .contact-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.contact .contact-content .column{
+    width: calc(50% - 30px);
+}
+
+/*Formatação do rodapé*/
+footer{
+    background-color: #121721;
+    padding: 25px 23px;
+    color: #fff;
+    text-align: center;
+    margin-top: auto;
+    font-family: 'Poppins', sans-serif;
+}
+/*Formatação do link do rodapé*/
+footer span a{
+    color: #547ec7;
+}
+footer span a:hover{
+    color: #fff;
 }
